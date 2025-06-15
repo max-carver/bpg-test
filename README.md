@@ -15,11 +15,11 @@ To view the project [click here](https://bpg-test.vercel.app/)
 
 1. **Clone the repository**
 
-`bash git clone https://github.com/max-carver/bpg-test cd bpg-test `
+`git clone https://github.com/max-carver/bpg-test cd bpg-test `
 
 2. **Install dependencies**
 
-   `bash pnpm install `
+   `pnpm install `
 
 3. **Environment Setup**
 
@@ -29,11 +29,11 @@ Create a `.env` file in the root directory with the following variables: (See em
 
 4. **View Database**
 
-`bash # Open Drizzle Studio to view database pnpm db:studio`
+`# Open Drizzle Studio to view database pnpm db:studio`
 
 5. **Start the development server**
 
-`bash pnpm dev `
+`pnpm dev `
 
 6. **Open your browser**
 
