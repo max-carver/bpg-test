@@ -15,7 +15,7 @@ To view the project [click here](https://bpg-test.vercel.app/)
 
 1. **Clone the repository**
 
-`git clone https://github.com/max-carver/bpg-test cd bpg-test `
+`git clone https://github.com/max-carver/bpg-test && cd bpg-test `
 
 2. **Install dependencies**
 
