@@ -22,47 +22,40 @@ export const POST = auth(async function POST(request) {
 
   const { data } = validatedFields;
 
-  if (request.auth) {
-    try {
-      const existingUser = await db
-        .select()
-        .from(users)
-        .where(eq(users.email, data.email));
+  try {
+    const existingUser = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, data.email));
 
-      if (existingUser.length > 0) {
-        return NextResponse.json(
-          { message: "Email already exists", success: false },
-          { status: 409 },
-        );
-      }
-
-      const hashedPassword = await bcryptjs.hash(data.password, 10);
-
-      await db.insert(users).values({
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        password: hashedPassword,
-      });
-
+    if (existingUser.length > 0) {
       return NextResponse.json(
-        {
-          message: `User created successfully`,
-          success: true,
-        },
-        { status: 201 },
-      );
-    } catch (error) {
-      console.error(error);
-      return NextResponse.json(
-        { message: "Internal server error", success: false },
-        { status: 500 },
+        { message: "Email already exists", success: false },
+        { status: 409 },
       );
     }
-  } else {
+
+    const hashedPassword = await bcryptjs.hash(data.password, 10);
+
+    await db.insert(users).values({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: hashedPassword,
+    });
+
     return NextResponse.json(
-      { message: "Not authenticated", success: false },
-      { status: 401 },
+      {
+        message: `User created successfully`,
+        success: true,
+      },
+      { status: 201 },
+    );
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { message: "Internal server error", success: false },
+      { status: 500 },
     );
   }
 });

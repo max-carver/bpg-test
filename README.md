@@ -49,7 +49,7 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## Notes
 
--**API Routes**: Next.js API routes used for all database queries. Everything except authentication route `src/app/api/auth[...nextauth]/route.ts]` requires
+-**API Routes**: Next.js API routes used for all database queries. Everything except Auth.js api route `src/app/api/auth[...nextauth]/route.ts]` requires
 authentication
 
 - **Database**: Hosted PostgreSQL solution via [Neon](https://neon.com/) with [Drizzle ORM](https://orm.drizzle.team/)
