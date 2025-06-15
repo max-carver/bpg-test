@@ -1,14 +1,12 @@
 "use client";
 
-import { ChevronsUpDown, LogOut, Settings, User } from "lucide-react";
+import { ChevronsUpDown, LogOut } from "lucide-react";
 import type { User as UserType } from "next-auth";
-import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -50,17 +48,6 @@ const UserDropdown = ({ user }: { user: UserType }) => {
             </span>
           </div>
         </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem className="flex items-center">
-            <User />
-            <Link href="/profile">Account</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem className="flex items-center">
-            <Settings />
-            <Link href="/settings">Settings</Link>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
         <DropdownMenuItem

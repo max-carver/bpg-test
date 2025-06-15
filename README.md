@@ -1,29 +1,78 @@
-# Create T3 App
+# Basis Point James Bond Ping Test
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+My submission for Basis Point Group test assigned to me
 
-## What's next? How do I make an app with this?
+To view the project [click here](https://nextjs.org)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Running locally
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+### Prerequisites
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- Node.js 18+
+- pnpm (recommended package manager)
 
-## Learn More
+### Setup Instructions
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+1. **Clone the repository**
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+   ```bash
+   git clone https://github.com/max-carver/bpg-test
+   cd bpg-test
+   ```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+2. **Install dependencies**
 
-## How do I deploy this?
+   ```bash
+   pnpm install
+   ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+3. **Environment Setup**
+   Create a `.env` file in the root directory with the following variables:
+   (See email)
+
+   ```env
+   # Database
+   DATABASE_URL=""
+
+   # NextAuth
+   AUTH_SECRET=""
+   ```
+
+4. **View Database**
+
+   ```bash
+   # Open Drizzle Studio to view database
+   pnpm db:studio
+   ```
+
+5. **Start the development server**
+
+   ```bash
+   pnpm dev
+   ```
+
+6. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+### Available Scripts
+
+- `pnpm dev` - Start development server with Turbo
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm db:studio` - Open Drizzle Studio
+
+## Notes
+
+-**API Routes**: Next.js API routes used for all database queries. Everything except authentication route `src/app/api/auth[...nextauth]/route.ts]` requires authentication
+
+- **Database**: Hosted PostgreSQL solution via [Neon](https://neon.com/) with [Drizzle ORM](https://orm.drizzle.team/)
+
+- **Authentication**: Credentials provider with JWT strategy using [Auth.js (V5)](https://authjs.dev/) with role-based access control (User & Admin)
+
+- **UI**: [ShadCN](https://ui.shadcn.com/) for ease of use with [Tailwind CSS](https://tailwindcss.com/)
+
+- **Data Visualization**: In conjuction with ShadCN, the [Tanstack Table module](https://tanstack.com/table) was used for table creation
+
+- **Form Validation**: Made use of [Zod](https://zod.dev/) with [React Hook Form](https://react-hook-form.com/) for client and server side data validation (also integrates nicely with ShadCN)
+
+- **Ping System**: Random GPS coorindate generation with parent relationships
