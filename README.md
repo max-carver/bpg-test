@@ -25,15 +25,16 @@ To view the project [click here](https://bpg-test.vercel.app/)
 
 Create a `.env` file in the root directory with the following variables: (See email)
 
-`env # Database DATABASE_URL="" # NextAuth AUTH_SECRET=""`
+`Database DATABASE_URL=""`
+`AUTH_SECRET=""`
 
 4. **View Database**
 
-`# Open Drizzle Studio to view database pnpm db:studio`
+`pnpm db:studio`
 
 5. **Start the development server**
 
-`pnpm dev `
+`pnpm dev`
 
 6. **Open your browser**
 
