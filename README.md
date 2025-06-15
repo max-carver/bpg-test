@@ -25,7 +25,7 @@ To view the project [click here](https://bpg-test.vercel.app/)
 
 Create a `.env` file in the root directory with the following variables: (See email)
 
-`Database DATABASE_URL=""`
+`DATABASE_URL=""`
 `AUTH_SECRET=""`
 
 4. **View Database**
@@ -45,12 +45,12 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 - `pnpm dev` - Start development server with Turbo
 - `pnpm build` - Build for production
 - `pnpm start` - Start production server
-- `pnpm db:studio` - Open Drizzle Studio
+- `pnpm db:studio` - Open Drizzle Studio to view data
 
 ## Notes
 
--**API Routes**: Next.js API routes used for all database queries. Everything except Auth.js api route `src/app/api/auth[...nextauth]/route.ts]` requires
-authentication
+- **API Routes**: Next.js API routes used for all database queries. Everything except Auth.js api route `src/app/api/auth[...nextauth]/route.ts]` requires
+  authentication
 
 - **Database**: Hosted PostgreSQL solution via [Neon](https://neon.com/) with [Drizzle ORM](https://orm.drizzle.team/)
 
