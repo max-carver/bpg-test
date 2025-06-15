@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
@@ -36,7 +36,7 @@ export const POST = auth(async function POST(request) {
         );
       }
 
-      const hashedPassword = await bcrypt.hash(data.password, 10);
+      const hashedPassword = await bcryptjs.hash(data.password, 10);
 
       await db.insert(users).values({
         firstName: data.firstName,

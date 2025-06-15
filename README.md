@@ -15,44 +15,29 @@ To view the project [click here](https://nextjs.org)
 
 1. **Clone the repository**
 
-   ```bash
-   git clone https://github.com/max-carver/bpg-test
-   cd bpg-test
-   ```
+`bash git clone https://github.com/max-carver/bpg-test cd bpg-test `
 
 2. **Install dependencies**
 
-   ```bash
-   pnpm install
-   ```
+   `bash pnpm install `
 
 3. **Environment Setup**
-   Create a `.env` file in the root directory with the following variables:
-   (See email)
 
-   ```env
-   # Database
-   DATABASE_URL=""
+Create a `.env` file in the root directory with the following variables: (See email)
 
-   # NextAuth
-   AUTH_SECRET=""
-   ```
+`env # Database DATABASE_URL="" # NextAuth AUTH_SECRET=""`
 
 4. **View Database**
 
-   ```bash
-   # Open Drizzle Studio to view database
-   pnpm db:studio
-   ```
+`bash # Open Drizzle Studio to view database pnpm db:studio`
 
 5. **Start the development server**
 
-   ```bash
-   pnpm dev
-   ```
+`bash pnpm dev `
 
 6. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+
+Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### Available Scripts
 
@@ -63,7 +48,8 @@ To view the project [click here](https://nextjs.org)
 
 ## Notes
 
--**API Routes**: Next.js API routes used for all database queries. Everything except authentication route `src/app/api/auth[...nextauth]/route.ts]` requires authentication
+-**API Routes**: Next.js API routes used for all database queries. Everything except authentication route `src/app/api/auth[...nextauth]/route.ts]` requires
+authentication
 
 - **Database**: Hosted PostgreSQL solution via [Neon](https://neon.com/) with [Drizzle ORM](https://orm.drizzle.team/)
 
