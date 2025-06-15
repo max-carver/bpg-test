@@ -1,4 +1,4 @@
-e# Basis Point James Bond Ping Test
+# Basis Point James Bond Ping Test
 
 My submission for Basis Point Group test assigned to me
 
