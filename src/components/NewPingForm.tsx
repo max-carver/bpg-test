@@ -53,7 +53,7 @@ const NewPingForm = ({ isAdminPage = false }: { isAdminPage?: boolean }) => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <SubmitButton
-          size={isAdminPage ? "default" : "xl"}
+          size={isAdminPage ? "sm" : "xl"}
           icon={<Radio className={isAdminPage ? "size-4" : "size-6"} />}
           text="Send New Ping"
           isLoading={form.formState.isSubmitting}

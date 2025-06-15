@@ -48,23 +48,7 @@ const PingDisplay = ({
     <>
       <div className="flex flex-col gap-2">
         {isDashboardPage && (
-          <div className="flex w-full items-center justify-between">
-            <h2 className="font-semibold">Your Most Recent Pings</h2>
-            <div className="ml-auto flex items-center gap-3">
-              <Link href="/all-pings">
-                <Button variant="outline">
-                  <Network className="size-4" />
-                  All Pings
-                </Button>
-              </Link>
-              <Link href="/send-ping">
-                <Button>
-                  <Radio className="size-4" />
-                  Send Ping
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <h2 className="font-semibold">Your Most Recent Pings</h2>
         )}
 
         {isAdminPage && (
@@ -74,9 +58,25 @@ const PingDisplay = ({
           </div>
         )}
         <Table columns={columns} data={pings} />
-        <span className="text-muted-foreground text-sm">
-          {pings.length} {pings.length === 1 ? "ping" : "pings"}
-        </span>
+        <div className="flex w-full items-center justify-between">
+          <span className="text-muted-foreground text-sm">
+            {pings.length} {pings.length === 1 ? "ping" : "pings"}
+          </span>
+          <div className="ml-auto flex items-center gap-3">
+            <Link href="/all-pings">
+              <Button variant="outline">
+                <Network className="size-4" />
+                All Pings
+              </Button>
+            </Link>
+            <Link href="/send-ping">
+              <Button>
+                <Radio className="size-4" />
+                Send Ping
+              </Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -45,7 +45,7 @@ const SendPingPage = () => {
   }, [fetchRecentPings]);
 
   return (
-    <div className="page-height flex w-full items-center justify-center gap-4">
+    <div className="page-height flex flex-col items-center justify-center gap-4 lg:flex-row">
       <NewPingForm />
       <UserRecentPingForm
         recentPings={recentPings.filter(
