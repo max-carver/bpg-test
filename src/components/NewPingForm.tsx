@@ -12,7 +12,7 @@ import { generateRandomGPSCoordinates } from "@/lib/generateCoords";
 import type { ResponseData } from "@/lib/types";
 import { sendPingSchema } from "@/lib/zodSchemas";
 
-const NewPingForm = () => {
+const NewPingForm = ({ isAdminPage = false }: { isAdminPage?: boolean }) => {
   const form = useForm<z.infer<typeof sendPingSchema>>({
     resolver: zodResolver(sendPingSchema),
     defaultValues: {
@@ -53,7 +53,8 @@ const NewPingForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <SubmitButton
-          icon={<Radio className="size-4" />}
+          size={isAdminPage ? "default" : "xl"}
+          icon={<Radio className={isAdminPage ? "size-4" : "size-6"} />}
           text="Send New Ping"
           isLoading={form.formState.isSubmitting}
         />

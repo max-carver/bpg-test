@@ -11,7 +11,7 @@ interface SubmitButtonProps {
     | "outline"
     | "ghost"
     | "link";
-  size?: "default" | "sm" | "lg" | "icon";
+  size?: "default" | "sm" | "lg" | "icon" | "xl";
   isLoading?: boolean;
   isDisabled?: boolean;
   asChild?: boolean;

@@ -72,7 +72,8 @@ const GlobalRecentPingForm = ({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <SubmitButton
-          icon={<GitCompareArrows className="size-4" />}
+          size="xl"
+          icon={<GitCompareArrows className="size-6" />}
           variant="secondary"
           text={
             recentPingsLoading

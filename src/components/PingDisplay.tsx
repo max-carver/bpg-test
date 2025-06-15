@@ -7,6 +7,7 @@ import NewPingForm from "@/components/NewPingForm";
 import { Table } from "@/components/Table";
 import { Button } from "@/components/ui/button";
 import type { Ping, TrailedPing } from "@/lib/types";
+import Link from "next/link";
 
 interface PingDisplayProps {
   pings: Ping[] | TrailedPing[];
@@ -29,18 +30,6 @@ const PingDisplay = ({
     </div>
   ) : pings.length === 0 ? (
     <>
-      {isDashboardPage && (
-        <div className="flex items-center justify-between gap-3">
-          <Button variant="outline">
-            <Network className="size-4" />
-            All Pings
-          </Button>
-          <Button>
-            <Radio className="size-4" />
-            Send Ping
-          </Button>
-        </div>
-      )}
       {isAdminPage ? (
         <div className="page-height flex flex-col items-center justify-center">
           <h2 className="font-semibold">No pings found</h2>
@@ -59,20 +48,25 @@ const PingDisplay = ({
     <>
       <div className="flex flex-col gap-2">
         {isDashboardPage && (
-          <div className="flex items-center justify-between gap-3">
-            <Button variant="outline">
-              <Network className="size-4" />
-              All Pings
-            </Button>
-            <Button>
-              <Radio className="size-4" />
-              Send Ping
-            </Button>
+          <div className="flex w-full items-center justify-between">
+            <h2 className="font-semibold">Your Most Recent Pings</h2>
+            <div className="ml-auto flex items-center gap-3">
+              <Link href="/all-pings">
+                <Button variant="outline">
+                  <Network className="size-4" />
+                  All Pings
+                </Button>
+              </Link>
+              <Link href="/send-ping">
+                <Button>
+                  <Radio className="size-4" />
+                  Send Ping
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
-        {isDashboardPage && (
-          <h2 className="font-semibold">Your Most Recent Pings</h2>
-        )}
+
         {isAdminPage && (
           <div className="flex w-full items-center justify-between">
             <h2 className="font-semibold">Pings</h2>

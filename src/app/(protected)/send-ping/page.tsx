@@ -7,7 +7,6 @@ import { useSession } from "next-auth/react";
 import GlobalRecentPingForm from "@/components/GlobalRecentPingForm";
 import NewPingForm from "@/components/NewPingForm";
 import UserRecentPingForm from "@/components/UserRecentPingForm";
-import { Separator } from "@/components/ui/separator";
 import type { Ping, ResponseData } from "@/lib/types";
 
 const SendPingPage = () => {
@@ -46,32 +45,20 @@ const SendPingPage = () => {
   }, [fetchRecentPings]);
 
   return (
-    <div>
-      <ul>
-        <li>Send new ping</li>
-        <ol>
-          <li>Random Coordinates</li>
-          <li>Allows optional response to the most previous ping only</li>
-        </ol>
-      </ul>
-
-      <Separator className="my-2" />
-
-      <div className="flex w-full items-center justify-center gap-2">
-        <NewPingForm />
-        <UserRecentPingForm
-          recentPings={recentPings.filter(
-            (ping) => ping.user_id === session?.user.id,
-          )}
-          recentPingsLoading={recentPingsLoading}
-          fetchRecentPings={fetchRecentPings}
-        />
-        <GlobalRecentPingForm
-          recentPings={recentPings}
-          recentPingsLoading={recentPingsLoading}
-          fetchRecentPings={fetchRecentPings}
-        />
-      </div>
+    <div className="page-height flex w-full items-center justify-center gap-4">
+      <NewPingForm />
+      <UserRecentPingForm
+        recentPings={recentPings.filter(
+          (ping) => ping.user_id === session?.user.id,
+        )}
+        recentPingsLoading={recentPingsLoading}
+        fetchRecentPings={fetchRecentPings}
+      />
+      <GlobalRecentPingForm
+        recentPings={recentPings}
+        recentPingsLoading={recentPingsLoading}
+        fetchRecentPings={fetchRecentPings}
+      />
     </div>
   );
 };

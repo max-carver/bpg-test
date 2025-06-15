@@ -1,8 +1,8 @@
-# Basis Point James Bond Ping Test
+e# Basis Point James Bond Ping Test
 
 My submission for Basis Point Group test assigned to me
 
-To view the project [click here](https://nextjs.org)
+To view the project [click here](https://bpg-test.vercel.app/)
 
 ## Running locally
 

@@ -68,7 +68,8 @@ const UserRecentPingForm = ({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <SubmitButton
-          icon={<GitPullRequestCreateArrow className="size-4" />}
+          size="xl"
+          icon={<GitPullRequestCreateArrow className="size-6" />}
           variant="outline"
           text={
             recentPingsLoading

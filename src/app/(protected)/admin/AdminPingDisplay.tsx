@@ -107,7 +107,7 @@ const AdminPingDisplay = () => {
     <div className="flex flex-col gap-2">
       <div className="flex w-full items-center justify-between">
         <h2 className="font-semibold">Pings</h2>
-        <NewPingForm />
+        <NewPingForm isAdminPage />
       </div>
       {isLoading ? (
         <div className="flex h-24 items-center justify-center">
