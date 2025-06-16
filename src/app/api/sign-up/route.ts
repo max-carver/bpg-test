@@ -40,7 +40,7 @@ export const POST = auth(async function POST(request) {
     await db.insert(users).values({
       firstName: data.firstName,
       lastName: data.lastName,
-      email: data.email,
+      email: data.email.toLowerCase(),
       password: hashedPassword,
     });
 

@@ -42,7 +42,11 @@ const SignInForm = () => {
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
     setError(null);
 
-    const res = await signInUser(data);
+    const res = await signInUser({
+      email: data.email.toLowerCase(),
+      password: data.password,
+    });
+
     if (!res?.success) {
       setError(res?.message || "Something went wrong");
     }

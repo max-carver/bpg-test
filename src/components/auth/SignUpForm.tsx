@@ -59,7 +59,7 @@ const SignUpForm = () => {
     }
 
     await signInUser({
-      email: data.email,
+      email: data.email.toLowerCase(),
       password: data.password,
     });
   };
