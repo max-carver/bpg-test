@@ -27,9 +27,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { signInSchema } from "@/lib/zodSchemas";
 import { signInUser } from "@/server/actions/signIn";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 const SignInForm = () => {
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -83,7 +85,24 @@ const SignInForm = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input placeholder="********" type="password" {...field} />
+                    <div className="relative">
+                      <Input
+                        placeholder="********"
+                        type={showPassword ? "text" : "password"}
+                        {...field}
+                      />
+                      {showPassword ? (
+                        <EyeIcon
+                          className="absolute top-1/2 right-2 size-3 -translate-y-1/2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="absolute top-1/2 right-2 size-3 -translate-y-1/2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        />
+                      )}
+                    </div>
                   </FormControl>
 
                   <FormMessage />

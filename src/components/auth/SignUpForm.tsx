@@ -28,9 +28,12 @@ import { Input } from "@/components/ui/input";
 import type { ResponseData } from "@/lib/types";
 import { signUpSchema } from "@/lib/zodSchemas";
 import { signInUser } from "@/server/actions/signIn";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 const SignUpForm = () => {
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -127,7 +130,24 @@ const SignUpForm = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input placeholder="********" type="password" {...field} />
+                    <div className="relative">
+                      <Input
+                        placeholder="********"
+                        type={showPassword ? "text" : "password"}
+                        {...field}
+                      />
+                      {showPassword ? (
+                        <EyeIcon
+                          className="absolute top-1/2 right-2 size-3 -translate-y-1/2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="absolute top-1/2 right-2 size-3 -translate-y-1/2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        />
+                      )}
+                    </div>
                   </FormControl>
 
                   <FormMessage />
@@ -141,7 +161,28 @@ const SignUpForm = () => {
                 <FormItem>
                   <FormLabel>Confirm password</FormLabel>
                   <FormControl>
-                    <Input placeholder="********" type="password" {...field} />
+                    <div className="relative">
+                      <Input
+                        placeholder="********"
+                        type={showConfirmPassword ? "text" : "password"}
+                        {...field}
+                      />
+                      {showConfirmPassword ? (
+                        <EyeIcon
+                          className="absolute top-1/2 right-2 size-3 -translate-y-1/2 cursor-pointer"
+                          onClick={() =>
+                            setShowConfirmPassword(!showConfirmPassword)
+                          }
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="absolute top-1/2 right-2 size-3 -translate-y-1/2 cursor-pointer"
+                          onClick={() =>
+                            setShowConfirmPassword(!showConfirmPassword)
+                          }
+                        />
+                      )}
+                    </div>
                   </FormControl>
 
                   <FormMessage />
